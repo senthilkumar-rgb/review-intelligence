@@ -1,35 +1,52 @@
-# 🎯 Review Intelligence for Tessigma
-**Elevating Sales Engineering through AI-Driven Review Analysis.**
+# Review Intelligence
 
-Review Intelligence is a specialized tool built for **Tessigma** to help Sales Engineers identify technical pain points from user reviews and transform them into high-conversion sales outreach.
+AI-powered sales intelligence agent for Testsigma's SDR and AE teams.
 
----
+## Features
 
-## 🚀 The Powerhouse Stack
-This tool leverages a triple-AI approach:
-* **Perplexity Pro:** Real-time company news.
-* **Gemini 1.5 Flash:** High-speed technical analysis.
-* **Claude 3.5 Sonnet:** Premium sales copywriting.
+### Pre Discovery Mode
+- **Account Summary** — Quick overview, industry, account owner, last conversation history
+- **Intent Signals** — G2 + Factor buyer intent data with location intelligence
+- **Technical Reviews** — 5 lowest-rated competitor reviews from G2
+- **Technical Painpoints & Testsigma USPs** — Review-derived pain points mapped to Testsigma strengths
+- **ICP & Contacts** — Buying committee with roles, emails, LinkedIn, and priority scores
+- **Cold Email & Call Scripts** — Personalized per contact, informed by G2 reviews and their specific role
+- **How to Ace Discovery** — Gong-optimized BANT questions for a 10/10 qualification score
+- **Pre Discovery Assistant** — Anthropic Claude LLM for further account research
 
----
+### Post Discovery Mode
+- **Account Summary** — Same as Pre Discovery + SDR, AE, Presales names, and meeting date
+- **Customer Use Case (Attio)** — 1 similar-industry customer success story from Attio CRM
+- **Discovery Call One-Pager** — BANT analysis from Gong.io recording with key moments and scores
+- **How to Ace the Demo** — Anthropic-powered AE + SE pointers derived from BANT, demo flow, objection prep
+- **Demo Prep Assistant** — Embedded Anthropic Claude LLM for demo prep questions
 
-## ⚙️ Setup Instructions
-1. **Clone the repo:**
-   `git clone https://github.com/senthilkumar-rgb/review-intelligence.git`
-2. **Install dependencies:**
-   `npm install`
-3. **Configure Environment:**
-   Create a `.env` file:
-   ```text
-   GEMINI_API_KEY=your_key
-   CLAUDE_API_KEY=your_key
-   PERPLEXITY_API_KEY=your_key
-   ```
+## Tech Stack
 
----
+- **Frontend**: React 18 + Vite + Tailwind CSS
+- **Backend**: Node.js + Express
+- **AI**: Anthropic Claude (claude-sonnet-4-6)
+- **Integrations**: G2 Intent API, Gong.io API, Attio CRM API, Factor (Bombora)
 
-## 🏆 Current Progress
-- [x] Initial Project Architecture
-- [x] Multi-Model AI Service Logic
-- [ ] Frontend Dashboard Integration
-- [ ] Live Review Scraping
+## Setup
+
+```bash
+# Install all dependencies
+npm run install:all
+
+# Copy env vars
+cp .env.example .env
+# Fill in your API keys
+
+# Run development (two terminals)
+npm run dev:backend   # starts Express on :3001
+npm run dev:frontend  # starts Vite on :5173
+```
+
+## Environment Variables
+
+See `.env.example` for required keys:
+- `ANTHROPIC_API_KEY` — for Claude LLM sections
+- `GONG_API_KEY` — for BANT analysis from call recordings
+- `G2_API_KEY` — for intent signals and reviews
+- `ATTIO_API_KEY` — for customer use case lookup
