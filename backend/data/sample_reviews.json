@@ -1,0 +1,54 @@
+{
+  "reviews": [
+    {
+      "id": 1,
+      "rating": 1,
+      "title": "Maintenance nightmare as app grows",
+      "content": "We spend more time maintaining Selenium scripts than writing new tests. Every UI change breaks 30+ tests.",
+      "author": "QA Lead",
+      "date": "2026-03-15",
+      "source": "G2",
+      "helpful": 47
+    },
+    {
+      "id": 2,
+      "rating": 2,
+      "title": "Slow execution kills CI/CD pipeline",
+      "content": "Full regression suite takes 6 hours. Cannot run on every PR. Bugs caught late in the cycle.",
+      "author": "Senior QA Engineer",
+      "date": "2026-02-28",
+      "source": "G2",
+      "helpful": 38
+    },
+    {
+      "id": 3,
+      "rating": 2,
+      "title": "Cross-browser testing is a full-time job",
+      "content": "Setting up cross-browser grids requires dedicated DevOps. Infrastructure management consumes too many resources.",
+      "author": "Automation Engineer",
+      "date": "2026-02-10",
+      "source": "G2",
+      "helpful": 31
+    },
+    {
+      "id": 4,
+      "rating": 2,
+      "title": "Non-technical team cannot contribute to tests",
+      "content": "Only senior automation engineers can write tests. Product managers cannot contribute, creating bottlenecks.",
+      "author": "QA Manager",
+      "date": "2026-01-22",
+      "source": "G2",
+      "helpful": 29
+    },
+    {
+      "id": 5,
+      "rating": 3,
+      "title": "Reporting is too basic",
+      "content": "Test reports are just pass/fail logs. No trend analysis, no insights on flaky tests, no visibility for management.",
+      "author": "Engineering Manager",
+      "date": "2026-01-08",
+      "source": "G2",
+      "helpful": 24
+    }
+  ]
+}
