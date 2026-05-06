@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { mockFetch } from '../utils/api';
 
 const MOCK_BANT = {
-  recordingUrl: 'https://app.gong.io/call?id=demo',
+  source: 'Attio',
   accountName: 'Account',
   callDate: '2026-05-05',
   duration: '42 minutes',
-  gongScore: 78,
+  attioScore: 78,
   bant: {
     budget: {
       score: 8,
@@ -73,12 +73,12 @@ export default function OnePager({ formData, onBANTLoaded }) {
         <div className="card-icon bg-cyan-900/50"><span>📄</span></div>
         <div className="flex-1">
           <h2 className="section-title">Discovery Call One-Pager</h2>
-          <p className="text-sm text-slate-500">BANT analysis from Gong.io recording</p>
+          <p className="text-sm text-slate-500">BANT analysis from Attio CRM</p>
         </div>
         {bant && (
           <div className="text-right">
             <div className={`text-2xl font-bold ${scoreColor(bant.overallBANTScore)}`}>{bant.overallBANTScore}/10</div>
-            <div className="text-xs text-slate-500">BANT Score &middot; Gong {bant.gongScore}</div>
+            <div className="text-xs text-slate-500">BANT Score &middot; <span className="text-emerald-400">Attio</span></div>
           </div>
         )}
       </div>
@@ -87,6 +87,12 @@ export default function OnePager({ formData, onBANTLoaded }) {
         <div className="space-y-3">{[...Array(4)].map((_, i) => <div key={i} className="loading-pulse h-24 rounded-lg" />)}</div>
       ) : (
         <div>
+          {/* Source badge */}
+          <div className="flex items-center gap-2 mb-4">
+            <span className="badge bg-emerald-900/40 text-emerald-300 border border-emerald-800">Powered by Attio</span>
+            <span className="text-xs text-slate-500">{bant.callDate} &middot; {bant.duration}</span>
+          </div>
+
           {/* BANT Scores Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
             {[

@@ -4,7 +4,6 @@ const path = require('path');
 require('dotenv').config();
 
 const claudeService = require('./services/claude');
-const gongService = require('./services/gong');
 const g2Service = require('./services/g2');
 const attioService = require('./services/attio');
 const reviewsData = require('./data/sample_reviews.json');
@@ -92,8 +91,8 @@ app.post('/api/ace-discovery', async (req, res) => {
 
 app.post('/api/bant-analysis', async (req, res) => {
   try {
-    const { gongRecordingUrl, accountName } = req.body;
-    const data = await gongService.getBANTFromRecording(gongRecordingUrl, accountName);
+    const { accountName, meetingDate } = req.body;
+    const data = await attioService.getBANTAnalysis(accountName, meetingDate);
     res.json(data);
   } catch (e) {
     res.status(500).json({ error: e.message });
